@@ -13,7 +13,7 @@ print("ENV value:", os.getenv("ENV"))
 print("DEBUG value:", os.getenv("DEBUG"))
 
 # Flask app setup
-app = Flask(__name__)
+application = Flask(__name__)
 app.config["ENV"] = os.getenv("ENV", "development")
 app.config["DEBUG"] = os.getenv("DEBUG", "False") == "True"
 
