@@ -3,7 +3,6 @@ name: Deploy to AWS Elastic Beanstalk
 on:
   push:
     branches:
-    - main
       - production
 
 jobs:
@@ -40,7 +39,7 @@ jobs:
         uses: einaregilsson/beanstalk-deploy@v22
         with:
           application_name: calc-api
-          environment_name: calc-api-staging-env
+          environment_name: calc-api-env
           version_label: ${{ github.sha }}
           region: us-east-1
           deployment_package: app.zip
