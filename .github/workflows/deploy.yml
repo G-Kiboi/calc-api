@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production  # 🟢 This tells GitHub to use secrets from the 'production' environment
 
     steps:
       - name: Checkout code
@@ -23,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install zip and package app
+      - name: Zip the application
         run: |
           sudo apt-get update && sudo apt-get install -y zip
           zip -r app.zip . -x "*.git*" "__pycache__/*" "*.env"
